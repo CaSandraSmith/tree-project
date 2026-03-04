@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tweet Generator</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+        background-image: url("{{ url_for('static', filename='images/flowers2.jpg') }}");
+        background-repeat: repeat-x;
+        background-size: auto 230px;
+        background-position: bottom;
+      }
+      h1 {
+        color: #b5a4d8;
+        font-size: 4rem;
+        text-align: center;
+      }
+      button {
+        background-color: #B4D3B2;
+        color: white;
+        border: transparent;
+        padding: 15px;
+        font-size: 2rem;
+        border-radius: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>{{sentence}}</h1>
+    <button id="generate-button">Generate a new sentence</button>
+    <script>
+      button = document.getElementById("generate-button");
+      button.addEventListener("click", () => {
+        window.location.reload();
+      });
+    </script>
+  </body>
+</html>
