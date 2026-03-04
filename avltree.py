@@ -159,7 +159,8 @@ class AvlTree:
         node.height = max(node_left_height, node_right_height) + 1
         
         new_node_left_height = self._calculate_node_height(new_subtree_root.left)
-        new_subtree_root.height = max(node.height, new_node_left_height) + 1
+        new_node_right_height = self._calculate_node_height(new_subtree_root.right)
+        new_subtree_root.height = max(new_node_right_height, new_node_left_height) + 1
         return new_subtree_root
     
     
@@ -174,7 +175,8 @@ class AvlTree:
         node.height = max(node_left_height, node_right_height) + 1
         
         new_node_right_height = self._calculate_node_height(new_subtree_root.right)
-        new_subtree_root.height = max(node.height, new_node_right_height) + 1
+        new_node_left_height = self._calculate_node_height(new_subtree_root.left)
+        new_subtree_root.height = max(new_node_left_height, new_node_right_height) + 1
         
         return new_subtree_root
     
@@ -182,7 +184,7 @@ class AvlTree:
     def _calculate_node_height(self, node):
         '''Determine the height of the node if it exists.'''
         if node is None:
-            return 0
+            return -1
         else:
             return node.height
         
